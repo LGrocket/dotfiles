@@ -7,6 +7,12 @@ PATH=/android-sdk-mac_x86/tools:$PATH; export PATH
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
 
+# Set default editor to vim
+VISUAL=vim
+export VISUAL
+EDITOR=vim
+export EDITOR
+
 # adding support for git tab completion
 if [ -f /sw/etc/bash_completition.d/git-completion.bash ]; then
 . /sw/etc//bash_completion.d/git-completion.bash
@@ -19,8 +25,8 @@ source ~/git-completion.bash
 alias irb='irb --simple-prompt' 
 
 #Colorize
- export CLICOLOR=1
- export LSCOLORS=GxFxCxDxBxegedabagaced
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
 
 #RVM add to path
 [[ -s "/Users/toucannyc/.rvm/scripts/rvm" ]] && source "/Users/toucannyc/.rvm/scripts/rvm"

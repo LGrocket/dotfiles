@@ -9,7 +9,20 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'rainux/vim-desert-warm-256'
-Bundle 'comments.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'ervandew/supertab'
+Bundle 'scrooloose/syntastic'
+Bundle 'Lokatog/vim-easymotion'
+Bundle 'chrisbra/NrrwRgn'
+Bundle 'vim-scripts/ZoomWin'
+Bundle 'jeetsukumaran/vim-buttergator'
+Bundle 'vim-scripts/StatusLineHighlight'
+Bundle 'rson/vim-conque'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "snipmate-snippets"
+Bundle "garbas/vim-snipmate"
 
 filetype plugin indent on
 " END of vundle
@@ -20,12 +33,26 @@ colorscheme desert-warm-256
 set gfn=Bitstream\ Vera\ Sans\ Mono\ 10
 set tabstop=3
 set shiftwidth=3
+set showcmd
+set laststatus=2
 
 " custom mappings
 " Change modes with ;;
 imap ;; <Esc>
+map ;; <Esc>
 " un-indent with shift-tab
 imap <leader><tab> <C-x><C-o>
+" change leader key from '\' to ','
+let mapleader = ","
+" new lines without entering insert mode
+map <CR>k O<Esc>j
+map <CR>j o<Esc>k
+map <leader>nt :NERDTree<CR>
+" Window managment
+:map - <C-W>-
+:map + <C-W>
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_+
 
 "Helpeful abbreviations
 iab lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
