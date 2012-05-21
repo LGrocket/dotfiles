@@ -8,9 +8,9 @@ PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
 
 # Set default editor to vim
-VISUAL=vim
+VISUAL='mvim -f'
 export VISUAL
-EDITOR=vim
+EDITOR='mvim -f'
 export EDITOR
 
 # adding support for git tab completion
@@ -23,6 +23,9 @@ source ~/git-completion.bash
 
 # Start IRB in simple prompt without ruby version number
 alias irb='irb --simple-prompt' 
+
+# Use macvim for terminal vim
+alias vim="mvim -v"
 
 #Colorize
 export CLICOLOR=1
@@ -115,3 +118,12 @@ git_prompt ()
 
 # Thy holy prompt.
 PROMPT_COMMAND='PS1="${c_user}\u${c_reset}@${c_reset}:${c_path}\W${c_reset}$(git_prompt)\$ "'
+
+##
+# Your previous /Users/toucannyc/.profile file was backed up as /Users/toucannyc/.profile.macports-saved_2012-05-10_at_11:58:58
+##
+
+# MacPorts Installer addition on 2012-05-10_at_11:58:58: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+

@@ -8,24 +8,29 @@ Bundle 'gmarik/vundle'
 " vundle managed plugins & scripts
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
+Bundle "tpope/vim-rails"
 Bundle 'rainux/vim-desert-warm-256'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
-Bundle 'Lokatog/vim-easymotion'
 Bundle 'chrisbra/NrrwRgn'
 Bundle 'vim-scripts/ZoomWin'
-Bundle 'jeetsukumaran/vim-buttergator'
 Bundle 'vim-scripts/StatusLineHighlight'
 Bundle 'rson/vim-conque'
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "snipmate-snippets"
 Bundle "garbas/vim-snipmate"
+Bundle "Lokaltog/vim-easymotion"
+Bundle "kana/vim-textobj-user"
+Bundle "nelstrom/vim-textobj-rubyblock"
+Bundle "tomtom/tcomment_vim"
 
 filetype plugin indent on
 " END of vundle
+" set up for vim-textobj-ruby-block
+runtime macros/matchit.vim
 
 " color and visual
 set term=xterm-256color
@@ -77,6 +82,34 @@ set hlsearch
 set ignorecase
 set smartcase
 
+"Escape special characters in a string for exact matching.
+" This is useful to copying strings from the file to the search tool
+" Based on this
+"- http://peterodding.com/code/vim/profile/autoload/xolox/escape.vim
+function! EscapeString (string)
+	let string=a:string
+	let string = escape(string, '^$.*\/~[]')
+	let string = substitute(string, '\n', '\\n', 'g')
+	return string
+endfunction
+" Get the current visual block for search and replaces
+" This function passed the visual block through a string escape
+" Based on this
+"- http://stackoverflow.com/questions/676600/vim-replace-selected-text/677918#677918
+function! GetVisual() range
+	let reg_save = getreg('"')
+	let regtype_save = getregtype('"')
+	let cb_save = &clipboard
+	set clipboard&
+	let selection = getreg('"')
+	call setreg('"', reg_save, regtype_save)
+	let &clipboard = cb_save
+	let escaped_selection = EscapeString(selection)
+	return escaped_selection
+endfunction
+" Start the find and replace command across the entire file
+vmap <C-r> <Esc>:%s/<c-r>=GetVisual()<cr>/
+
 " Bubble single lines
 nmap <C-S-Up> [e
 nmap <C-S-Down> ]e
@@ -95,9 +128,13 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 
 " Misc.
 au FocusLost * :wa " save when term window looses focus 
-set showmatch " show matching brackets
-set foldenable
+"set showmatch " show matching brackets
 set splitbelow
+"folding
+set foldmethod=syntax
+set foldnestmax=3
+set nofoldenable
+set foldlevel=1
 " Not exactly sure what these do...
 set wildmenu
 set nu
