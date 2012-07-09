@@ -26,6 +26,8 @@ Bundle "Lokaltog/vim-easymotion"
 Bundle "kana/vim-textobj-user"
 Bundle "nelstrom/vim-textobj-rubyblock"
 Bundle "tomtom/tcomment_vim"
+Bundle "vim-scripts/rubycomplete.vim"
+Bundle "tpope/vim-endwise"
 
 filetype plugin indent on
 " END of vundle
@@ -45,22 +47,21 @@ set laststatus=2
 " Change modes with ;;
 imap ;; <Esc>
 map ;; <Esc>
-" un-indent with shift-tab
-imap <leader><tab> <C-x><C-o>
+" un-indent with shift-tab [not working]
+" imap <s-tab> <C-d>
 " change leader key from '\' to ','
 let mapleader = ","
 " new lines without entering insert mode
 map <CR>k O<Esc>j
 map <CR>j o<Esc>k
 map <leader>nt :NERDTree<CR>
-" Window managment
-:map - <C-W>-
-:map + <C-W>
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_+
+" Window managment [not working]
+"map - <C-W>-
+"map + <C-W>
+"map <C-J> <C-W>j<C-W>_
+"map <C-K> <C-W>k<C-W>_+
 
 "Helpeful abbreviations
-iab lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 nmap <space> :
 
 " better wrapping
@@ -116,19 +117,16 @@ nmap <C-S-Down> ]e
 " Bubble multiple lines
 vmap <C-S-Up> [egv
 vmap <C-S-Down> ]egv
-
-
-"http://vim.wikia.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
-set completeopt=longest,menuone
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
-  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
+" Execute 'lnoremap x X' and 'lnoremap X x' for each letter a-z.
+for c in range(char2nr('A'), char2nr('Z'))
+	execute 'lnoremap ' . nr2char(c+32) . ' ' . nr2char(c)
+	execute 'lnoremap ' . nr2char(c) . ' ' . nr2char(c+32)
+endfor
+" Kill the capslock when leaving insert mode.
+ autocmd InsertLeave * set iminsert=0
 " Misc.
 au FocusLost * :wa " save when term window looses focus 
-"set showmatch " show matching brackets
+"set showmatch " show matching brackets [annoying]
 set splitbelow
 "folding
 set foldmethod=syntax

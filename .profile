@@ -10,7 +10,7 @@ export PATH
 # Set default editor to vim
 VISUAL='mvim -f'
 export VISUAL
-EDITOR='mvim -f'
+EDITOR='mvim -v'
 export EDITOR
 
 # adding support for git tab completion
