@@ -8,7 +8,7 @@ Bundle 'gmarik/vundle'
 " vundle managed plugins & scripts
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-unimpaired'
-Bundle "tpope/vim-rails"
+Bundle 'tpope/vim-rails'
 Bundle 'rainux/vim-desert-warm-256'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
@@ -18,16 +18,17 @@ Bundle 'chrisbra/NrrwRgn'
 Bundle 'vim-scripts/ZoomWin'
 Bundle 'vim-scripts/StatusLineHighlight'
 Bundle 'rson/vim-conque'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "snipmate-snippets"
-Bundle "garbas/vim-snipmate"
-Bundle "Lokaltog/vim-easymotion"
-Bundle "kana/vim-textobj-user"
-Bundle "nelstrom/vim-textobj-rubyblock"
-Bundle "tomtom/tcomment_vim"
-Bundle "vim-scripts/rubycomplete.vim"
-Bundle "tpope/vim-endwise"
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'snipmate-snippets'
+Bundle 'garbas/vim-snipmate'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'vim-scripts/rubycomplete.vim'
+Bundle 'tpope/vim-endwise'
+Bundle 'vim-scripts/Rename'
 
 filetype plugin indent on
 " END of vundle

@@ -5,21 +5,26 @@ PATH=/android-sdk-mac_x86/tools:$PATH; export PATH
 # Setting PATH for Python 2.7
 # The orginal version is saved in .profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+#Path for HomewBrew
+PATH="/usr/local/bin:/usr/bin:${PATH}"
+#PATH for NPM
+PATH="/usr/local/share/npm/bin:${PATH}"
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
 export PATH
+#PATH for Node.js
+export NODE_PATH="/usr/local/lib/node"
 
 # Set default editor to vim
-VISUAL='mvim -f'
+VISUAL='mvim -v'
 export VISUAL
 EDITOR='mvim -v'
 export EDITOR
 
 # adding support for git tab completion
-if [ -f /sw/etc/bash_completition.d/git-completion.bash ]; then
-. /sw/etc//bash_completion.d/git-completion.bash
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+	. `brew --prefix`/etc/bash_completion
 fi
-
-#Git Tab completion
-source ~/git-completion.bash
 
 # Start IRB in simple prompt without ruby version number
 alias irb='irb --simple-prompt' 
@@ -53,17 +58,10 @@ alias ll="ls -AFhl"
 
 # homeconfig management
 # http://sursolid.com/managing-home-dotfiles-with-git-and-github
-alias homeconfig='git --git-dir=$HOME/.homeconfig.git/ --work-tree=$HOME'
+alias dotfiles='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 
 # https://github.com/danharper/Jumplist
 source ~/.jumplist-driver
- #fuction _jumpcompletetion() {
- 	#local curw
- 	#COMPREPLY=()
- 	#curw=${COMP_WORDS[COMP_CWORD]}
- 	#COMPREPLY=($(compgen -W 'jump list | awk '/^\w+\S/gm { print $1 }' | tr '\n' ' '' -- $curw))
- 	#return 0
- #}
 function j() {
 	if [ $# -eq 0 ]; then
 		jump list
