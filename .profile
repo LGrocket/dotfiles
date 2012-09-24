@@ -43,6 +43,7 @@ alias gco='git co'
 alias gci='git ci'
 alias grb='git rb'
 alias gs="git status"
+alias gc="git commit -am"
 
 # mkdir and cd into it
 function mkcd() { mkdir $1; cd $1; }
@@ -55,6 +56,12 @@ alias la="ls -AF"
 alias a="la"
 alias lo="ls -AF1"
 alias ll="ls -AFhl"
+
+# Eclim daemon alias
+alias eclimd="/Applications/eclipse/eclimd"
+
+# UMass EdLab alias
+alias edlab="ssh lgutterm@elnux1.cs.umass.edu"
 
 # homeconfig management
 # http://sursolid.com/managing-home-dotfiles-with-git-and-github
@@ -69,10 +76,9 @@ function j() {
 		jump $@
 	fi
 }
-# complete -F _jumpcompletetion -o bookmarknames 'jump list'
 
 # Vi mode in Terminal line editing
-# set -o vi
+set -o vi
 
 # http://vvv.tobiassjosten.net/bash/dynamic-prompt-with-git-and-ansi-colors
 # Modified version of colored git prompt

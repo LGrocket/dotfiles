@@ -29,6 +29,7 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'vim-scripts/rubycomplete.vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'vim-scripts/Rename'
+Bundle 'vim-scripts/simplefold'
 
 filetype plugin indent on
 " END of vundle
@@ -61,9 +62,17 @@ map <leader>nt :NERDTree<CR>
 "map + <C-W>
 "map <C-J> <C-W>j<C-W>_
 "map <C-K> <C-W>k<C-W>_+
-
+" Maps <esc> to remove highlighting
+nnoremap <Bslash> :noh<return><esc>
 "Helpeful abbreviations
 nmap <space> :
+
+" Mappings for Eclim
+" http://eclim.org/vim/java/index.html#features
+" Search for the javadocs of the element under the cursor with <leader>d.
+nnoremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
+" Perform a context sensitive search of the element under the cursor with <CR>
+nnoremap <silent> <buffer> <cr> :JavaSearchContext<cr>
 
 " better wrapping
 set wrap
