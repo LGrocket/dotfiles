@@ -30,6 +30,12 @@ Bundle 'vim-scripts/rubycomplete.vim'
 Bundle 'tpope/vim-endwise'
 Bundle 'vim-scripts/Rename'
 Bundle 'vim-scripts/simplefold'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'vim-scripts/JavaScript-Indent'
+Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'othree/html5.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'briancollins/vim-jst'
 
 filetype plugin indent on
 " END of vundle
@@ -66,6 +72,8 @@ map <leader>nt :NERDTree<CR>
 nnoremap <Bslash> :noh<return><esc>
 "Helpeful abbreviations
 nmap <space> :
+"map <leader>l to toggle hidden formatting characters
+nmap <leader>l :set list!<CR>
 
 " Mappings for Eclim
 " http://eclim.org/vim/java/index.html#features

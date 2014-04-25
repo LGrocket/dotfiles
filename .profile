@@ -16,10 +16,10 @@ export PATH
 export NODE_PATH="/usr/local/lib/node"
 
 # Set default editor to vim
-VISUAL='mvim -v'
-export VISUAL
-EDITOR='mvim -v'
-export EDITOR
+#VISUAL='mvim -v'
+#export VISUAL
+#EDITOR='mvim -v'
+#export EDITOR
 
 # adding support for git tab completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
@@ -30,7 +30,7 @@ fi
 alias irb='irb --simple-prompt' 
 
 # Use macvim for terminal vim
-alias vim="mvim -v"
+#alias vim="mvim -v"
 
 #Colorize
 export CLICOLOR=1
@@ -62,6 +62,10 @@ alias eclimd="/Applications/eclipse/eclimd"
 
 # UMass EdLab alias
 alias edlab="ssh lgutterm@elnux1.cs.umass.edu"
+
+#Bundler Binstubs alias
+#http://robots.thoughtbot.com/post/15346721484/use-bundlers-binstubs
+alias binstubs="bundle install --binstubs"
 
 # homeconfig management
 # http://sursolid.com/managing-home-dotfiles-with-git-and-github
